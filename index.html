@@ -11,7 +11,14 @@
       background-color: #0f172a;
       color: #e2e8f0;
     }
+    nav a.active {
+  color: white;
+  border-bottom: 2px solid #38bdf8;
+}
 
+.container {
+  padding: 30px;
+}
     header {
      
   background: url('sua-imagem.jpg') center/cover no-repeat;
@@ -224,16 +231,16 @@ header * {
     <p>© 2026 - Davi | Repertório Intelectual</p>
   </footer>
 <script>
-function mostrarSecao(secaoId) {
+function mostrarSecao(secaoId, elemento) {
   const secoes = document.querySelectorAll("section");
+  const links = document.querySelectorAll("nav a");
 
   secoes.forEach(secao => {
-    if (secao.id === secaoId) {
-      secao.style.display = "block";
-    } else {
-      secao.style.display = "none";
-    }
+    secao.style.display = secao.id === secaoId ? "block" : "none";
   });
+
+  links.forEach(link => link.classList.remove("active"));
+  elemento.classList.add("active");
 }
 </script>
 </body>
