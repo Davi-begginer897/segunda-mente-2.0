@@ -79,15 +79,33 @@
     <h1>Repertório Intelectual</h1>
     <p>Estudos, análises e evolução contínua</p>
     <nav>
-      <a href="#">Início</a>
-      <a href="#tecnologia">Tecnologia</a>
-      <a href="#estrategia">Estratégia</a>
-      <a href="#outros">Outros</a>
+      <a href="#" onclick="mostrarSecao('inicio')">Inicio</a>
+      <a href="#" onclick="mostrarSecao('tecnologia')">Tecnologia</a>
+      <a href="#" onclick="mostrarSecao('estrategia')">Estratégia</a>
+      <a href="#" onclick="mostrarSecao('outros')">Outros</a>
     </nav>
   </header>
 
   <div class="container">
 
+
+    <section id="inicio">
+  <h2>Início</h2>
+
+  <div class="card">
+    <h2>Sobre mim</h2>
+    <p>
+      Meu nome é Davi. Este site é meu repertório intelectual — um espaço onde organizo meus estudos, ideias e análises ao longo do tempo.
+    </p>
+    <p>
+      Tenho interesse em diversas áreas, como tecnologia, estratégia, desenvolvimento pessoal e outros temas que contribuam para minha evolução.
+    </p>
+    <p>
+      Este projeto funciona como uma “segunda mente”, onde armazeno conhecimento de forma estruturada.
+    </p>
+  </div>
+
+</section>
     <section id="tecnologia">
       <h2>💻 Tecnologia</h2>
 
@@ -131,6 +149,18 @@
   <footer>
     <p>© 2026 - Davi | Repertório Intelectual</p>
   </footer>
+<script>
+function mostrarSecao(secaoId) {
+  const secoes = document.querySelectorAll("section");
 
+  secoes.forEach(secao => {
+    if (secao.id === secaoId) {
+      secao.style.display = "block";
+    } else {
+      secao.style.display = "none";
+    }
+  });
+}
+</script>
 </body>
 </html>
