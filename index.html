@@ -107,6 +107,13 @@ header * {
     <h1>Repertório Intelectual</h1>
     <p>Estudos, análises e evolução contínua</p>
     <nav>
+      <input 
+  type="text" 
+  id="busca" 
+  placeholder="Buscar conteúdos..." 
+  onkeyup="buscarConteudo()" 
+  style="margin-top: 15px; padding: 8px; width: 80%; max-width: 400px; border-radius: 5px; border: none;"
+>
       <a onclick="mostrarSecao('inicio', this)">Inicio</a>
       <a onclick="mostrarSecao('tecnologia', this)">Tecnologia</a>
       <a onclick="mostrarSecao('estrategia', this)">Estrategia</a>
@@ -143,6 +150,7 @@ header * {
      
       <div class="card">
         <h3>Introdução a Computação Quântica 30/03/2026</h3>
+        <p class="tags">#tecnologia #quantica #futuro</p>
         <p>Resumo dos conceitos básicos e sua aplicação futura.</p>
         <p>Esse foi um trabalho desenvolvido por meio da análise das aprsentações em sala de aula.</p>
         <p>O objetivo do professor era nos fazer aprender e explicar com nossas palavras.</p>
@@ -150,6 +158,7 @@ header * {
       </div>
       <div class="card">
         <h3>Trabalho sobre Regras de Ouro e Heurística</h3>
+        <p class="tags">#interface #desenvolvimento #futuro</p>
         <p>Trabalho desenvolvido para apresentação em sala. Foi realizado a análise a interface do site Ebay.</p>
         <a href="https://docs.google.com/presentation/d/1U8oZVbBOAGJKCpdHpgW-isJMl9Ul-ksA/edit?usp=sharing&ouid=100887575303302891434&rtpof=true&sd=true" class="btn">Ver PDF</a>
       </div>
@@ -234,6 +243,20 @@ function mostrarSecao(secaoId, elemento) {
 
   links.forEach(link => link.classList.remove("active"));
   elemento.classList.add("active");
+}
+function buscarConteudo() {
+  const termo = document.getElementById("busca").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const texto = card.innerText.toLowerCase();
+
+    if (texto.includes(termo)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
 }
 </script>
 </body>
